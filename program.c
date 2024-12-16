@@ -15,29 +15,29 @@ int main(int argc, char *argv[])
 	char response[4096];
 	FILE *fp;
 	const char *output_filename = "output.resp";
+	char *url;
 
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 	curl = curl_easy_init();
 
-	/*
 	if(argc == 1)
 	{
-		printf("please provide a url for request\n");
-		return 1;
+		printf("Please provide a url for request\n\n");
+		printf("No URL provided. Using example.com for testing\n");
+		url = "http://example.com";
 	}
-	*/
+	else
+	{
+		url = argv[1];
+	}
 
 	fp = fopen(output_filename, "wb");
+
 	if(fp == NULL)
 	{
-		printf("Error opening file for writing");
+		printf("Error opening file for writing\n");
 		return 1;
 	}
-
-
-
-	//char *url = argv[1];
-	char url[] = "http://example.com";
 
 	if (curl) 
 	{
