@@ -1,7 +1,7 @@
 all: main
 
-main: main.c 
-	gcc -Wall -g main.c -o main -lcurl
+main: program.c 
+	gcc -Wall -g program.c -o program -lcurl
 
 clean:
-	rm -f main
+	rm -f program
