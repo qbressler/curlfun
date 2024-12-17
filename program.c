@@ -1,6 +1,5 @@
-// testing
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <curl/curl.h>
 
 size_t write_to_file(void *ptr, size_t size, size_t nmemb, FILE *stream) {
@@ -35,8 +34,8 @@ int main(int argc, char *argv[])
 
 	if(fp == NULL)
 	{
-		printf("Error opening file for writing\n");
-		return 1;
+		fprintf(stderr, "Could not open output file for writing");
+		exit(1);
 	}
 
 	if (curl) 
